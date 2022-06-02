@@ -187,7 +187,6 @@ const {
           // we will have to wait for the fulfillRandomWords to be called
           await new Promise(async (resolve, reject) => {
             raffle.once('WinnerPicked', async () => {
-              console.log('Found the event');
               try {
                 const recentWinner = await raffle.getRecentWinner();
                 const raffleState = await raffle.getRaffleState();
@@ -208,11 +207,10 @@ const {
                       .toString()
                   )
                 );
+                resolve();
               } catch (e) {
                 reject(e);
               }
-
-              resolve();
             });
 
             const tx = await raffle.performUpkeep([]);
