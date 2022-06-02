@@ -33,6 +33,9 @@ module.exports = {
     // coinmarketcap: COINMARKETCAP_API_KEY,
   },
   solidity: '0.8.7',
+  etherscan: {
+    apiKey: ETHERSCAN_API_KEY,
+  },
   namedAccounts: {
     deployer: {
       default: 0,
